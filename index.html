@@ -10,34 +10,41 @@
 <body>
   <div class="countainer">
     <div class="ecran">
-      <p>0</p>
+      <input type="text" id="screen">
     </div>
     <div class="touches">
-      <button class="btn">C</button>
-      <button class="btn">(</button>
-      <button class="btn">)</button>
-      <button class="btn">X</button>
-      <button class="btn">√</button>
-      <button class="btn">x²</button>
-      <button class="btn">%</button>
-      <button id="btn" class="btn">&divide;</button>
-      <button class="btn">7</button>
-      <button class="btn">8</button>
-      <button class="btn">9</button>
-      <button id="btn" class="btn">&times;</button>
-      <button class="btn">4</button>
-      <button class="btn">5</button>
-      <button class="btn">6</button>
-      <button id="btn" class="btn">-</button>
-      <button class="btn">1</button>
-      <button class="btn">2</button>
-      <button class="btn">3</button>
-      <button id="btn" class="btn">+</button>
-      <button class="btn">0</button>
-      <button id="btn" class="btn">.</button>
-      <button class="btn">(-)</button>
-      <button id="btn" class="btn">=</button>
+      <button class="btn C" onclick="clearScreen() "> C </button>
+      <button class="btn" onclick="show('(')"> ( </button>
+      <button class="btn" onclick="show(')')"> ) </button>
+      <button class="btn" onclick=""> DEL </button>
+
+      <button class="btn" onclick=""> √ </button>
+      <button class="btn" onclick=""> x²</button>
+      <button class="btn" onclick=""> % </button>
+      <button id="/" class="btn btn1" onclick="show('/')"> / </button>
+
+      <button id='7' class="btn" onclick="show('7')"> 7 </button>
+      <button id='8' class="btn" onclick="show('8')"> 8 </button>
+      <button class="btn" onclick="show('9')"> 9 </button>
+      <button class="btn btn1" onclick="show('*')"> * </button>
+
+      <button class="btn" onclick="show('4')"> 4 </button>
+      <button class="btn" onclick="show('5')"> 5 </button>
+      <button class="btn" onclick="show('6')"> 6 </button>
+      <button class="btn btn1" onclick="show('-')"> - </button>
+
+      <button class="btn" onclick="show('1')"> 1 </button>
+      <button class="btn" onclick="show('2')"> 2 </button>
+      <button class="btn" onclick="show('3')"> 3 </button>
+      <button id="+" class="btn btn1" onclick="show('+')"> + </button>
+
+      <button class="btn" onclick="show('0')"> 0 </button>
+      <button class="btn btn1" onclick="show('.')"> . </button>
+      <button class="btn" onclick=""> (-) </button>
+      <button class="btn C btn1" onclick="calculate()"> = </button>
     </div>
   </div>
+
+  <script src="calc.js"></script>
 </body>
 </html>
