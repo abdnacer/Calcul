@@ -1,47 +1,97 @@
-var ecran = document.getElementById('screen');
-var numChar;
-var currentChar, previousChar;
-var operations = ['+', '-', '*', '/'];
+const display1El = document.querySelector('.display-1');
+const display2El = document.querySelector('.display-2');
+const tempResultEl = document.querySelector('.temp-result');
+const numbersEl = document.querySelectorAll('.number');
+const operationEl = document.querySelectorAll('.operation');
+const operationSqrtEl = document.querySelector('.operationSqrt');
+const equalEl = document.querySelector('.equal');
+const clearAllEl = document.querySelector('.all-clear');
+const clearLastEl = document.querySelector('.last-entity-clear');
 
-function clearScreen(){
-  ecran.value = "";
-}
+let dis1Num = '';
+let dis2Num = '';
+let result = null;
+let lastOperation = '';
+let haveDot = false;
 
-function show(num){
-  ecran.value += num;
-  numChar = ecran.value.length;
-  currentChar = num;
-  getPreviousChar(); 
-}
+numbersEl.forEach(number => {
+  number.addEventListener('click', (e) => {
+    if(e.target.innerText ===  '.' && !haveDot){
+        haveDot = true;
+    }
+    else if(e.target.innerText === '.' && haveDot){
+      return; 
+    }
+    dis2Num += e.target.innerText;
+    display2El.innerText = dis2Num; 
+  })
+})
 
-function calculate(){
-  ecran.value = eval(ecran.value);
-}
 
-function getPreviousChar(){
-  previousChar = ecran.value.substring(numChar-2, numChar-1);
-  calcSyntaxe();
-}
-
-function calcSyntaxe(){
-  if(operations.includes(currentChar) && numChar == 1 && currentChar != '-'){
-    removeChar();
-  }
-
-  if(operations.includes(previousChar) && operations.includes(currentChar)){
-    if(previousChar == currentChar){
-      removeChar();
+operationEl.forEach(operation => {
+  operation.addEventListener('click', (e) => {
+    if(!dis2Num) return;
+    haveDot = false;
+    const operationName = e.target.innerText;
+    if(dis1Num && dis2Num && lastOperation){
+      mathOperation();
     }
     else{
-      overWrite();
+      result = parseFloat(dis2Num); 
     }
+    clearVar(operationName);
+    lastOperation = operationName;
+  })
+});
+
+function clearVar(name =  ''){
+  dis1Num += dis2Num + ' ' + name + ' ';
+  display1El.innerText = dis1Num;
+  display2El.innerText = '';
+  dis2Num = '';
+  tempResultEl.innerText = result;
+}
+
+function mathOperation(){
+  if(lastOperation === '+'){
+    result = parseFloat(result) + parseFloat(dis2Num);
+  }
+  else if(lastOperation === '-'){
+    result = parseFloat(result) - parseFloat(dis2Num);
+  }
+  else if(lastOperation === 'x'){
+    result = parseFloat(result) * parseFloat(dis2Num);
+  }
+  else if(lastOperation === '/'){
+    result = parseFloat(result) / parseFloat(dis2Num);
+  }
+  else if(lastOperation === '%'){
+    result = parseFloat(result) % parseFloat(dis2Num);
   }
 }
 
-function overWrite(){
-  ecran.value = ecran.value.slice(0, numChar -2) + ecran.value.slice(numChar-1);
-}
+equalEl.addEventListener('click', (e) => {
+  if(!dis1Num || !dis2Num) return;
+  haveDot = false;
+  mathOperation();
+  clearVar();
+  display2El.innerText = result;
+  tempResultEl.innerText = '';
+  dis2Num = result;
+  dis1Num = '';
+})
 
-function removeChar(){
-  ecran.value = ecran.value.substring(0, numChar-1);
-}
+clearAllEl.addEventListener('click', (e) => {
+  display1El.innerText = '';
+  display2El.innerText = '0';
+  dis1Num ='';
+  dis2Num ='';
+  result = '';
+  tempResultEl.innerText = '';
+})
+
+clearLastEl.addEventListener('click', (e) => {
+  display2El.innerText = '';
+  dis2Num = '';
+})
+

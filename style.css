@@ -21,29 +21,35 @@ body{
   box-shadow: 0 0 20px 0px rgb(124, 112, 112);
 }
 
-.ecran{
+.display{
   background-color: #ECF0F3;
+  position: relative;
   padding: 10px;
   border: none;
   width: 100%;
-  height: 140px;
+  height: 150px;
   border-radius: 10px;
-  padding: 0 10px;
-
+  text-align: right;
+  padding: 20px;
+  font-size: 30px;
 }
 
-.ecran input{
-  cursor: text;
-  width: 100%;
-  height: 120px;
-  background-color: #ECF0F3;
-  font-size: 22px;
-  font-weight: 600;
-  border: none;
-  outline:none;
+.display-1{
+  opacity: .4;
+  font-size: 20px;
+  height: 20px;
+  overflow: hidden;
 }
 
-.touches{
+.temp-result{
+  position: absolute;
+  bottom: 0;
+  left: 10;
+  font-size: 20px;
+  opacity: .4;
+}
+
+.all_buttons{
   display: grid;
   grid-template-columns: repeat(4, 65px);
   grid-template-rows: repeat(6, 65px);
@@ -52,7 +58,7 @@ body{
   outline: none;
 }
 
-.touches button{
+.all_buttons button{
   cursor: pointer;
   font-size: 25px;
   background-color: #ECF0F3;
@@ -63,7 +69,7 @@ body{
   border-radius: 50px;
 }
 
-.touches button:hover{
+.all_buttons button:hover{
   background-color: #ECF0F3;
   color: white;
   text-shadow:
@@ -71,27 +77,21 @@ body{
    0 0 0.125em white;
 }
 
-/* .touches button::before{
-  content: '';
-  position: absolute;
-  background-color: #ECF0F3;
-  top: 120%;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transform: perspective(1em) rotateX(40deg) scale(1, 0.35);
-  filter: blur(2em);
-} */
-
-.btn.btn1{
-  font-size: 35px;
+.button.btn1{
+  font-size: 33px;
 }
 
-.btn.C{
+.button.C{
   background-color: #968c8c;
   color: rgb(255, 255, 255);
 }
-.btn.C:hover{
+
+.zero{
+  grid-column: 1/3;
+}
+
+.button.C:hover{
   background-color: #968c8c;
   color: rgb(12, 6, 6);
+
 }

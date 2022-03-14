@@ -9,39 +9,40 @@
 </head>
 <body>
   <div class="countainer">
-    <div class="ecran">
-      <input type="text" id="screen">
+    <div class="display">
+      <div  class="display-1">0</div>
+      <div  class="display-2">0</div>
+      <div  class="temp-result">0</div>
     </div>
-    <div class="touches">
-      <button class="btn C" onclick="clearScreen() "> C </button>
-      <button class="btn" onclick="show('(')"> ( </button>
-      <button class="btn" onclick="show(')')"> ) </button>
-      <button class="btn" onclick=""> DEL </button>
+    <div class="all_buttons">
+      <button class="button all-clear C"  > C </button>
+      <button class="button" > ( </button>
+      <button class="button" > ) </button>
+      <button class="button last-entity-clear"> CE </button>
 
-      <button class="btn" onclick=""> √ </button>
-      <button class="btn" onclick=""> x²</button>
-      <button class="btn" onclick=""> % </button>
-      <button id="/" class="btn btn1" onclick="show('/')"> / </button>
+      <button class="button operationSqrt"> √ </button>
+      <button class="button"> x²</button>
+      <button class="button operation"> % </button>
+      <button class="button btn1 operation"> / </button>
 
-      <button id='7' class="btn" onclick="show('7')"> 7 </button>
-      <button id='8' class="btn" onclick="show('8')"> 8 </button>
-      <button class="btn" onclick="show('9')"> 9 </button>
-      <button class="btn btn1" onclick="show('*')"> * </button>
+      <button class="button number"> 7 </button>
+      <button class="button number"> 8 </button>
+      <button class="button number"> 9 </button>
+      <button class="button operation"> x </button>
 
-      <button class="btn" onclick="show('4')"> 4 </button>
-      <button class="btn" onclick="show('5')"> 5 </button>
-      <button class="btn" onclick="show('6')"> 6 </button>
-      <button class="btn btn1" onclick="show('-')"> - </button>
+      <button class="button number"> 4 </button>
+      <button class="button number"> 5 </button>
+      <button class="button number"> 6 </button>
+      <button class="button btn1 operation"> - </button>
 
-      <button class="btn" onclick="show('1')"> 1 </button>
-      <button class="btn" onclick="show('2')"> 2 </button>
-      <button class="btn" onclick="show('3')"> 3 </button>
-      <button id="+" class="btn btn1" onclick="show('+')"> + </button>
+      <button class="button number"> 1 </button>
+      <button class="button number"> 2 </button>
+      <button class="button number"> 3 </button>
+      <button class="button btn1 operation"> + </button>
 
-      <button class="btn" onclick="show('0')"> 0 </button>
-      <button class="btn btn1" onclick="show('.')"> . </button>
-      <button class="btn" onclick=""> (-) </button>
-      <button class="btn C btn1" onclick="calculate()"> = </button>
+      <button class="button zero number"> 0 </button>
+      <button class="button btn1 number dot"> . </button>
+      <button class="button C btn1 equal"> = </button>
     </div>
   </div>
 
